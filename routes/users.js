@@ -7,5 +7,6 @@ module.exports = (router) => {
     .get(validateToken,controller.getAll)
 
     router.route('/login')
+    .get(controller.renderLogin)
     .post(controller.login);
 };

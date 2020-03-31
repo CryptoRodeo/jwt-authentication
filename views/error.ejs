@@ -1,0 +1,12 @@
+<%- include('./partials/header.ejs'); %>
+<% if(result.error == "Authentication error, token required"){ %>
+    <h1>Login to continue</h1>
+<% }
+    else
+    {
+%>
+    <h1>Welcome Back!</h1>
+    <%
+    }
+    %>
+<%- include('./partials/footer.ejs'); %>

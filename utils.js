@@ -36,7 +36,7 @@ module.exports = {
                 error: 'Authentication error, token required',
                 status: 401
             };
-            res.status(401).send(result);
+            res.render("../views/error.ejs", {result: result});
         }
     }
 }

@@ -21,6 +21,11 @@ module.exports = {
         .catch((err) => {
             console.log("You have an error", err);
         });
+
+    },
+
+    renderLogin: (req,res) => {
+        res.render("../views/login.ejs");
     },
 
     login: (req,res) => {
@@ -71,7 +76,7 @@ module.exports = {
             User.findAll().then((users) => {
                 result.result = users;
                 result.status = status
-                res.status(status).send(result)
+                res.render("../views/index.ejs", {result: result});
             });
         }
         else //user not authenticated 
@@ -79,7 +84,7 @@ module.exports = {
             console.log("error?");
             status = 401;
             result.status = status;
-            result.error = 'Authentication error';
+            result.error = 'Authentication error!';
         }
     }
 }

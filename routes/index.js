@@ -1,6 +1,8 @@
-const users = require('./users');
+const validateToken = require('../utils').validateToken;
+const controller = require('../controllers/index');
 
 module.exports = (router) => {
-    users(router);
+    router.route('/')
+    .get(validateToken, controller.renderIndex);
     return router;
 }

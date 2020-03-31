@@ -8,10 +8,11 @@ var logger = require('morgan');
 const routes = require('./routes/index.js');
 
 
+
 // invoke an instance of express application.
 var app = express();
 const router = express.Router();
-
+app.set('view engine', 'ejs');
 
 const environment = process.env.NODE_ENV;
 
@@ -26,7 +27,7 @@ if(environment !== 'production')
 }
 
 
-app.use('/api/v1', routes(router));
+app.use('/', routes(router));
 
 app.listen(`${stage.port}`, () => {
     console.log(`Server running on port: ${stage.port}`);
